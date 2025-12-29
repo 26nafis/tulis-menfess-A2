@@ -1,8 +1,10 @@
 CREATE TABLE IF NOT EXISTS menfess (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    sender VARCHAR(50) NOT NULL,
+    sender VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
-    color VARCHAR(20) DEFAULT 'bg-white',
+    color VARCHAR(50) DEFAULT 'bg-white',
+    likes INT DEFAULT 0,
+    dislikes INT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     -- TODO : Tambahkan kolom likes & dislikes di bawah ini --
     -- Clue: Gunakan tipe data INT dan DEFAULT 0 --
