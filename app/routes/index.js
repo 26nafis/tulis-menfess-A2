@@ -39,8 +39,16 @@ router.post("/send", async (req, res) => {
 
 // TODO: Tambahkan Route LIKE di sini
 // Clue: router.post('/like/:id', async (req, res) => { ... })
+router.post('/like/:id', async (req, res) => {
+    await db.query('UPDATE menfess SET likes = likes + 1 WHERE id = ?', [req.params.id]);
+    res.redirect('/');
+});
 
 // TODO: Tambahkan Route DISLIKE di sini
 // Clue: Mirip like, tapi yang ditambah kolom dislikes
+router.post('/dislike/:id', async (req, res) => {
+    await db.query('UPDATE menfess SET dislikes = dislikes + 1 WHERE id = ?', [req.params.id]);
+    res.redirect('/');
+});
 
 module.exports = router;
